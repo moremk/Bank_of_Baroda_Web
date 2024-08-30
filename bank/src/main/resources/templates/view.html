@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+body{
+margin:0%;
+background-color:orange;
+}
+</style>
+<body>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ACCOUNT NUMBER</th>
+            <th scope="col">IFSC CODE</th>
+            <th scope="col">ADHARID</th>
+            <th scope="col">PANCARD</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">MOBILE</th>
+            <th scope="col">ADDRESS</th>
+            <th scope="col">PIN</th>
+            <th scope="col">ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${account}">
+            <td th:text="${user.id}"></td>
+         
+            <td th:text="${user.account}"></td>
+            <td th:text="${user.ifscCode}"></td>
+            <td th:text="${user.adhar}"></td>
+            <td th:text="${user.pan}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.mobile}"></td>
+            <td th:text="${user.adress}"></td>
+            <td th:text="${user.pin}"></td>
+            <td>
+           <a th:href="@{/update/{id}(id=${user.id})}"><button class="btn btn-success"style="margin-left:0px;margin-top:10px;">UPDATE</button></a>
+          <form th:action="@{/delete/{id}(id=${user.id})}" method="post">
+          <button type="submit" class="btn btn-danger"style="margin-top:-65px;margin-left:100px;">DELETE</button>
+          </form>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

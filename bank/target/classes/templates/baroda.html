@@ -1,0 +1,100 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+  
+        
+    <style>
+    body{
+        margin: 0%;
+    
+    }
+    .demo{
+
+        height: 100px;
+        
+    }
+   
+    .img
+    {
+      
+        margin-top: -20px;
+        max-width: 100%;
+        border: 1px solid blue;
+        height: 60px;
+        border-color: rgb(98, 160, 214);
+        box-shadow: 1px;
+        background-color: rgb(141, 176, 207);
+    }
+    a{
+    width:108px;
+    float:left;
+    font-size: 15px;
+
+    padding: 50px 20px 50px 64.6px;
+    max-width: 100%;
+    font-style: bold;
+    text-align: center;
+    color:white;
+    background-color: rgb(255, 166, 0);
+    text-decoration: none;
+    
+    }
+
+    a:hover{
+        color:brown;
+    }
+    .ino{
+        width:1350px;
+        margin-top: -13px;
+        height: 300px;
+        max-width: 100%;
+        max-height: 50%;
+    
+    }
+    button{
+     width:60%;
+     color:white;
+     outline:none;
+     height:30%;
+     border: none;
+     background-color:rgb(255, 128, 64) ;
+    
+    }
+    footer{
+        width:1249px;
+        height: 50px;
+        max-width: 100%;
+        text-align: center;
+        font-style: bold;
+        color: white;
+        background-color: orange;
+        padding: 30px 100px 0px 0px;
+
+    }
+   
+    </style>
+    <body>
+        <div style="background-color:orange;">
+        <div class="demo">
+        
+            <a href="#" style="height:17px;"><img src="/img/barbo.jfif" alter="img" class="img"><br></a>
+            <b><a th:href="@{/baroda}">Home</a>
+                <a th:href="@{/createAccount}">CreateAcccount</a>
+                <a th:href="@{/withdraw}">BalancewithDraw</a>
+                <a th:href="@{/deposite}">BalanceDeposite</a>
+                 <a  th:href="@{/view}">RequestAccount</a>
+                  <a th:href="@{/admin}"style="float:right;"><button>LogOut</button></a></b>
+                
+        </div>
+        
+        <img src="/img/bannerFinal.jpg" class="ino">
+    </div>
+    
+            <img src="/img/loan.png" style="padding-left: 50px;width:310px; height: 15rem;border:9px orange;background-color: orange;"><img src="/img/hand.png"style="padding-left: 50px;border:9px orange;background-color: orange;height: 15rem;">
+            <img src="/img/atm.png"style="padding-left: 50px;border:9px orange;background-color: orange;height: 15rem;"><img src="/img/scann.jfif"style="padding-left: 50px;border:9px orange;background-color: orange;height: 15rem;width:310px;"><br>
+     
+<footer>
+    @2024 copyright by Mahesh More.All right reserved.
+</footer>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+  </head>   
+   <link rel="stylesheet" href="deposite.css">
+    <body>
+      <div>
+        <div class="demo">
+        
+            <a href="#"style="height:18px;"><img src="/img/barbo.jfif" alter="img" class="img"></a>
+            <b><a th:href="@{/bank}" >Home</a>
+            <a th:href="@{/createAccount}">CreateAcccount</a>
+            <a th:href="@{/withdraw}">BalancewithDraw</a>
+            <a th:href="@{/deposite}">BalanceDeposite</a></b>
+        </div>
+       
+        </div>
+
+
+        <div class="account">
+          <label>Deposite Balance</label><br><br><br>
+          <form th:action="@{/deposite}" th:object="${deposite}" method="post">
+          <input type="text" name="account" placeholder="Enter Account number" required>
+          <input type="text" name="ifsc" placeholder="Enter IFSC code"required><br>
+          <input type="text" name="amount" placeholder="Enter Amount"required>
+           <input type="datetime-local" name="time" placeholder="Select Time"required><br>
+          <input type="submit" value="Submit"><br>
+          </form>
+        </div>
+    </body>
+</html>

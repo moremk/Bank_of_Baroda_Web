@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+  </head>
+ <style>
+ body{
+        margin: 0%;
+        background-color: orange;
+      
+    }
+    .demo{
+     
+        height: 100px;
+        
+    }
+    a{
+    width:108px;
+    float:left;
+    font-size: 15px;
+    margin: auto;
+    padding:40px 50px 40px 115px;
+    max-width: 100%;
+    font-style: bold;
+    text-align: center;
+    color:white;
+    background-color: rgb(255, 166, 0);
+    text-decoration: none;
+    
+    }
+    a:hover{
+      color:brown;
+    }
+    .img{
+    margin-top:-10px;
+    margin-left:-30px;
+      width:150px;
+      height:60px;
+  
+      border: 1px solid blue;
+     
+    }
+    .account{
+            margin: auto;
+            margin-top: 50px;
+            width:600px;
+            height:300px;
+            text-align: center;
+            padding: 4px;
+            max-width: 50%;
+            background-color: white;
+            border: 1px solid rgb(234, 236, 240);
+            
+    }
+    label{
+           
+            font-size: 25px;
+            max-width: 40%;
+            color: orange;
+           
+    }
+    input[type="text"]
+    {
+      margin: 5px 20px 0px 20px;
+      width:200px;
+      height: 40px;
+      max-width: 40%;
+      border: 1px solid gray;
+      border-radius: 5px;
+      outline: none;
+
+    }
+    input[type="text"]:hover{
+      border: 2px solid orange;
+    }
+    input[type="submit"]
+    {
+      width:200px;
+      height: 40px;
+      max-width: 40%;
+      color:white;
+      border:none;
+      outline: none;
+      border-radius: 5px;
+      background-color: orange;
+    }
+    
+    .d{
+    margin-left:18px;
+    width:50px;
+    height: 45px;
+     border: 1px solid gray;
+     border-radius: 5px;
+      border-radius: 5px;
+      outline: none;
+    }
+    .d:hover{
+      border: 2px solid orange;
+    }
+ 
+ </style>
+ 
+    <body>
+      <div>
+        <div class="demo">
+        
+            <a href="#" style="height:18px;"><img src="/img/barbo.jfif" alter="img" class="img"><br></a>
+            <b><a th:href="@{/bank}" >Home</a>
+              <a th:href="@{/createAccount}">CreateAcccount</a>
+              <a th:href="@{/withdraw}">BalancewithDraw</a>
+              <a th:href="@{/deposite}">BalanceDeposite</a></b>
+        </div>
+        
+        </div>
+        <div class="account">
+          <label>Welcome Bank Of Baroda Acccount</label><br><br><br>
+            <form th:action="@{/update/{id}(id=${data.id})}" th:object="${data}"method="post">
+          <input type="text" name="adhar" th:value="${data.adhar}" required>
+          <input type="text" name="pan"  th:value="${data.pan}" required><br>
+          <input type="text"name="email" th:value="${data.email}" required>
+          <input type="text" name="mobile" th:value="${data.mobile}" required><br>
+          <input type="text"  name="adress" th:value="${data.adress}" required>
+          <input type="text" name="pin" th:value="${data.pin}" required><br><br>
+          <input type="submit" value="Submit"><br>
+          </form>
+        </div>
+      
+    </body>
+</html>

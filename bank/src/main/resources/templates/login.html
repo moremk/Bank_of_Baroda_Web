@@ -1,0 +1,79 @@
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+  
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        </head>
+        <style>
+         body{
+            background-color: orange;
+         }
+         .demo{
+           
+            margin: auto;
+            width:560px;
+            height:300px;
+            background-color: white;
+            max-width: 100%;
+            box-shadow: 3px 2px 3px 2px;
+            border: 2px solid cornflowerblue;
+            
+         }
+        
+         header{
+            font-size: 20px;
+            max-width: 30%;
+            color: rgb(17, 208, 233);
+            margin:-250px 0px 0px 330px;
+         }
+         input[type='text']
+         {
+           margin:10px 0px 0px 300px;
+           width:200px;
+           max-width: 30%;
+         }
+         input[type='password']
+         {
+           margin:0px 0px 0px 300px;
+           width:200px;
+           max-width: 30%;
+
+         }
+         input[type='submit']
+         {
+           margin:0px 0px 0px 300px;
+           width:200px;
+           border: none;
+           max-width: 30%;
+           background-color: rgb(20, 205, 230);
+         }
+          h1 {
+          margin:10px 0px 0px 260px;
+          color:rgb(17, 208, 233);
+          font-size:15px;
+          width:100%;
+         }
+      
+        </style>
+        
+        <body>
+        <div class="nav">
+        <b><a th:href="@{/admin}"><button class="btn btn-primary" style="margin:20px 20px 0px 10px;">ADMIN</button></a></b>
+        </div>
+            <div class="demo" style="margin-top: 150px;">
+                <img src="/img/admin.png" style="margin: 50px;">
+                <header><b>Login Now</b></header>
+                <form th:action="@{/login}" method="post">
+               <input type="text" name="name" class="form-control" placeholder="Enter Username"><br>
+               <input type="password" name="password" class="form-control" placeholder="Enter Password"><br>
+               <input type="submit" value="Login" class="btn btn-success"><br>
+               <h1><b>Don't have an Account ?<a th:href="@{/register}" style="text-decoration:none;color:blue;">New User</a></b></h1>
+               </form>
+</form>
+
+            </div>
+            <div th:if="${message}" th:text="${message}" style="margin-left:600px;margin-top:30px;color:white;"></div>
+        </body>
+    </head>
+</html>

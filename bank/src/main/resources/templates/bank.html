@@ -1,0 +1,223 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+      
+    <style>
+    body{
+        margin: 0%;
+    
+    }
+    .demo{
+
+        height: 100px;
+        
+    }
+   
+    .img
+    {
+      margin-left:-30px;
+        margin-top: -20px;
+        width:150px;
+       
+        border: 1px solid blue;
+        height: 60px;
+        border-color: rgb(98, 160, 214);
+        box-shadow: 1px;
+        background-color: rgb(141, 176, 207);
+    }
+    a{
+    width:108px;
+    float:left;
+    font-size: 15px;
+
+    padding: 50px 20px 50px 64.6px;
+    max-width: 100%;
+    font-style: bold;
+    text-align: center;
+    color:white;
+    background-color: rgb(255, 166, 0);
+    text-decoration: none;
+    
+    }
+
+    a:hover{
+        color:brown;
+    }
+    .ino{
+        width:1350px;
+        margin-top: -13px;
+        height: 300px;
+        max-width: 100%;
+        max-height: 50%;
+    
+    }
+    button{
+     width:50%;
+     color:white;
+     outline:none;
+     height:30%;
+     border: none;
+     background-color:rgb(255, 128, 64);
+    
+    }
+    footer{
+        width:1249px;
+        height: 50px;
+        max-width: 100%;
+        text-align: center;
+        font-style: bold;
+        color: white;
+        background-color: orange;
+        padding: 30px 100px 0px 0px;
+
+    }
+    .dem{
+    display:none;
+    float:right;
+    }
+     .chat-container {
+        display: none;
+        width: 300px;
+        height: 400px;
+        border: 1px solid #ddd;
+        background-size:contain;
+        display: flex;
+        float:right;
+        flex-direction: column;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-box {
+        flex: 1;
+        float:right;
+        padding: 10px;
+        overflow-y: auto;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .chat-controls {
+        display: flex;
+        border-top: 1px solid #ddd;
+      }
+
+      #user-input {
+        border: none;
+        padding: 10px;
+        width: calc(100% - 80px);
+        box-sizing: border-box;
+      }
+
+      button {
+        width: 80px;
+        height:40px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      .message {
+        margin: 5px 0;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .user-message {
+        background-color: #d1e7dd;
+        align-self: flex-end;
+      }
+
+      .bot-message {
+        background-color: #f1f1f1;
+        align-self: flex-start;
+      }
+    </style>
+    <body>
+        <div style="background-color:orange;">
+        <div class="demo">
+        
+            <a href="#" style="height:17px;"><img src="/img/barbo.jfif" alter="img" class="img"><br></a>
+            <b><a th:href="@{/bank}">Home</a>
+                <a th:href="@{/createAccount}">CreateAcccount</a>
+                <a th:href="@{/withdraw}">BalancewithDraw</a>
+                <a th:href="@{/deposite}">BalanceDeposite</a>
+                 <a  th:href="@{/Balance}" >CurrentBalance</a>
+                  <a th:href="@{/login}"style="float:right;"><button>LogOut</button></a></b>
+                
+        </div>
+        
+        <img src="/img/bannerFinal.jpg" class="ino">
+          <img src="/img/ai.avif" style="margin-top:50px;width:70px;height:70px;border-radius: 40px;font-size:30px; float:right;"onclick="myFunction()" >
+    <div class="dem" id="demo"> 
+    <div class="chat-container">
+       
+        <div class="chat-box" id="chat-box"></div>
+        <div class="chat-controls">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+</div>
+    <script>
+      function myFunction() {
+        const chatBox = document.getElementById("demo");
+        chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+      }
+
+      function sendMessage() {
+        const input = document.getElementById('user-input');
+        const message = input.value.trim();
+        
+        if (message) {
+          appendMessage(message, 'user-message');
+          input.value = '';
+
+       
+          setTimeout(() => {
+            const botResponse = getBotResponse(message);
+            appendMessage(botResponse, 'bot-message');
+          }, 1000);
+        }
+      }
+
+      function appendMessage(message, className) {
+        const chatBox = document.getElementById('chat-box');
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', className);
+        messageDiv.textContent = message;
+        chatBox.appendChild(messageDiv);
+        chatBox.scrollTop = chatBox.scrollHeight; 
+      }
+
+      function getBotResponse(userMessage) {
+    
+        const responses = {
+          'hii': 'Hello!',
+          'how are you': 'I am good, thank you!',
+          'how create bank account': 'you first click on create account menu and fill all required information',
+          'how deposite balance': 'you first click on deposite balance menu and enter account number and all required information',
+          'how withdraw balance': 'you first click on withdraw balance menu and enter account number and all required information',
+          'how check current balance': 'click on current balance menu and search account number',
+          'by': 'Good by!',
+        };
+        return responses[userMessage.toLowerCase()] || "Sorry, I don't understand.";
+      }
+    </script>
+    </div>
+    
+    
+            <img src="/img/loan.png" style="padding-left: 40px;width:310px; height: 15rem;border:9px orange;background-color: orange;"><img src="/img/hand.png"style="padding-left: 40px;border:9px orange;background-color: orange;height: 15rem;">
+            <img src="/img/atm.png"style="padding-left: 40px;border:9px orange;background-color: orange;height: 15rem;"><img src="/img/scann.jfif"style="padding-left: 40px;border:9px orange;background-color: orange;height: 15rem;width:310px;"><br>
+     
+<footer>
+    @2024 copyright by Mahesh More.All right reserved.
+</footer>
+    </body>
+</html>

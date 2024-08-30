@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Check Balance</title>
+    <link rel="stylesheet" href="balance.css">
+</head>
+<body>
+
+<div class="demo"><br>
+    <header><b>Check Your Current Balance</b></header>
+    <form th:action="@{/Balance}" th:object="${deposite}" method="post">
+        <input type="text" th:field="*{account}" placeholder="Enter AccountNumber" required><br>
+        <input type="submit" value="Show Balance">
+    </form>
+</div>
+
+<h1><b>Your Balance</b></h1>
+<table>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.balance}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

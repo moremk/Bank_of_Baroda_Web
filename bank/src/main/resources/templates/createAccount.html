@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+  </head>
+  <link rel="stylesheet" href="createAccount.css">
+ 
+    <body>
+      <div>
+        <div class="demo">
+        
+            <a href="#" style="height:18px;"><img src="/img/barbo.jfif" alter="img" class="img"><br></a>
+            <b><a th:href="@{/bank}" >Home</a>
+              <a th:href="@{/createAccount}">CreateAcccount</a>
+              <a th:href="@{/withdraw}">BalancewithDraw</a>
+              <a th:href="@{/deposite}">BalanceDeposite</a></b>
+        </div>
+        
+        </div>
+        <div class="account">
+          <label>Welcome Bank Of Baroda Acccount</label><br><br><br>
+            <form th:action="@{/account}" th:object="${data}"method="post" onsubmit="return valid()">
+          <input type="text" id="adhar"name="adhar" placeholder="Enter Adharcardnumber" required>
+          <input type="text" id="pan"name="pan" placeholder="Enter Pancardnumber" required><br>
+          <input type="text" id="email"name="email" placeholder="Enter Email" required>
+          <select id="drop" onchange="country()" class="d">
+          <option value="select country"></option>
+          <option value="in">IND +91</option>
+          <option value="us">US +44</option>
+          <option value="br">Brazil +55</option>    
+          <input type="mobile" id="mobile"name="mobile" placeholder="Enter Mobile" required></select><br>
+          <input type="text"  id="adress"name="adress" placeholder="Enter Adress" required>
+          <input type="text" id="pin"name="pin" placeholder="Enter Pincode" required><br><br>
+          <input type="submit" value="Submit"><br>
+          </form>
+        </div>
+        <script>
+
+        function country() {
+          var val = document.getElementById("drop").value;
+          var phone = document.getElementById("mobile");
+
+          if (val === "select country") {
+               phone.value="";
+          } else if (val === "in") {
+            phone.value = "+91";
+          } else if (val === "us") {
+            phone.value = "+44";
+          } else if (val === "br") {
+            phone.value = "+55";
+          }
+         
+        }
+        
+        </script>
+    </body>
+</html>
